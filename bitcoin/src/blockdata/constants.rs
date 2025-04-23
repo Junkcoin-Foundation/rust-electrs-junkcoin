@@ -76,7 +76,10 @@ fn bitcoin_genesis_tx() -> Transaction {
     let in_script = script::Builder::new()
         .push_int(486604799)
         .push_int_non_minimal(4)
-        .push_slice(b"Wed May 1, 2013: Spot gold fell 1.3 percent to $1,457.90 an ounce by 3:11 p.m. EDT (1911 GMT)")
+        .push_slice(b"Wed May 1, 2013: ")
+        .push_slice(b"Spot gold fell 1.3 percent to ")
+        .push_slice(b"$1,457.90 an ounce by 3:11 p.m. ")
+        .push_slice(b"EDT (1911 GMT)")
         .into_script();
     ret.input.push(TxIn {
         previous_output: OutPoint::null(),
